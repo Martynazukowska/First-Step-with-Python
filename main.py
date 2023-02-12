@@ -1,9 +1,4 @@
 
-
-print("Martyna")
-print(int("5")+3)
-
-
 print("Moje opcje to: "+ "A:B:C".split(":")[0])
 
 #słownik, nie lista odwolujemy się do kategorii a nie do 0/1/2
@@ -14,9 +9,12 @@ print(len(slownik["name"]))
 
 kolejka=[3,55,67,22,34,5,21,4,67,99]
 
+#sortowanie int lub string obojentne 
 print(sorted(kolejka))
 
-def moja_funkcja():
-    print("Funkcja")
+#tworzenie funkcji
+def moja_funkcja(pierwszy,drugi):
+    print(pierwszy,2+drugi)
 
-moja_funkcja()
+moja_funkcja("Funkcja", -1)
+moja_funkcja("Teraz funkcja", 0)
