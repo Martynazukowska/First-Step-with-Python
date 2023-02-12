@@ -18,3 +18,10 @@ def moja_funkcja(pierwszy,drugi):
 
 moja_funkcja("Funkcja", -1)
 moja_funkcja("Teraz funkcja", 0)
+
+#tworzenie default wartości funkcji
+def moja_funkcja2(pierwszy="Uwaga błąd",drugi=-10001):
+    print(pierwszy,2+drugi)
+
+moja_funkcja2("Funkcja", -1)
+moja_funkcja2()
