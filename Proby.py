@@ -39,12 +39,13 @@ def losuj():
         #losuj z zakresu odpowiedni atak
         atak=random.randrange(atakDol,atakGora)
         zycia=zycia-atak
-        if zycia<0:
+        if zycia>0:
             print("Atak wynosi ",atak," po nim twoje życie wynosi ", zycia)
-            print("Game over")
-        else:
-            print("Atak wynosi ",atak," po nim twoje życie wynosi ", zycia)
-
+            continue
+        
+        print("Atak wynosi ",atak," po nim twoje życie wynosi ", zycia)
+        print("Game over")
+        break
 
 # Sprawdzanie działania napisanych funkcji
 for item in zmienna:
