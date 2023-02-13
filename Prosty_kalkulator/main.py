@@ -6,6 +6,7 @@ print("Kalkulator\n")
 
 wczesniejszy=0
 start=0
+#zmienna potrzebna do logicznego zapisu
 prewczesniejszy=0
 
 run=True
@@ -39,7 +40,8 @@ def wyswietl():
         else:
             prewczesniejszy=wczesniejszy
             wczesniejszy=eval(str(wczesniejszy)+rownanie)
-
+        
+        #wyświetlanie całego równania na kalkulatorze
         print(prewczesniejszy,rownanie,"=",wczesniejszy)
 
 while run:
