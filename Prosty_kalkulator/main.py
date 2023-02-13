@@ -24,8 +24,10 @@ def wyswietl():
     else:
         rownanie=input(str(wczesniejszy))
 
+    #jeśli koniec ...
     if rownanie=="q":
         run=False
+    #jeśli nie koniec
     else:
         # eliminacja wszystkich innych niewskazanych znaków w kalkulatorze
         rownanie=re.sub("[A-Za-z,.:]","",rownanie)
@@ -43,6 +45,7 @@ def wyswietl():
         
         #wyświetlanie całego równania na kalkulatorze
         print(prewczesniejszy,rownanie,"=",wczesniejszy)
+
 
 while run:
     wyswietl()

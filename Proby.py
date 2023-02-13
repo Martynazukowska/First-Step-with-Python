@@ -1,3 +1,5 @@
+import random
+
 
 print("Moje opcje to: "+ "A:B:C".split(":")[0])
 
@@ -16,6 +18,7 @@ print(sorted(kolejka))
 def moja_funkcja(pierwszy,drugi):
     print(pierwszy,2+drugi)
 
+
 moja_funkcja("Funkcja", -1)
 moja_funkcja("Teraz funkcja", 0)
 
@@ -26,6 +29,24 @@ def spis_ludzi(*czlowiek):
     for ktos in czlowiek:
         print("Ten ktos to: ", ktos)
 
+
+def losuj():
+    zycia=250
+    atakDol=60
+    atakGora=80
+
+    while zycia>0:
+        #losuj z zakresu odpowiedni atak
+        atak=random.randrange(atakDol,atakGora)
+        zycia=zycia-atak
+        if zycia<0:
+            print("Atak wynosi ",atak," po nim twoje życie wynosi ", zycia)
+            print("Game over")
+        else:
+            print("Atak wynosi ",atak," po nim twoje życie wynosi ", zycia)
+
+
+# Sprawdzanie działania napisanych funkcji
 for item in zmienna:
     if item==1:
         #tworzenie default wartości funkcji
@@ -46,3 +67,6 @@ for item in zmienna:
     else:
         print("\n")
         spis_ludzi("Ola", "Zuza")
+        print("\n")
+        losuj()
+
