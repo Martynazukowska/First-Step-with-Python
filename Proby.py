@@ -31,8 +31,11 @@ def spis_ludzi(*czlowiek):
 
 
 class Enemy:
-    atakD=60
-    atakG=80
+#    atakD=0
+#    atakG=0
+    def __init__(self,D,G):
+        self.atakD=D
+        self.atakG=G
 
     def getAtakD(self):
         return self.atakD
@@ -41,7 +44,7 @@ class Enemy:
 
 
 def losuj():
-    Atak=Enemy()
+    Atak=Enemy(60,80)
     zycia=250
     atakDol=Atak.getAtakD()
     atakGora=Atak.getAtakG()
