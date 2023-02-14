@@ -30,10 +30,21 @@ def spis_ludzi(*czlowiek):
         print("Ten ktos to: ", ktos)
 
 
+class Enemy:
+    atakD=60
+    atakG=80
+
+    def getAtakD(self):
+        return self.atakD
+    def getAtakG(self):
+        return self.atakG
+
+
 def losuj():
+    Atak=Enemy()
     zycia=250
-    atakDol=60
-    atakGora=80
+    atakDol=Atak.getAtakD()
+    atakGora=Atak.getAtakG()
 
     while zycia>0:
         #losuj z zakresu odpowiedni atak
@@ -46,6 +57,8 @@ def losuj():
         print("Atak wynosi ",atak," po nim twoje życie wynosi ", zycia)
         print("Game over")
         break
+
+
 
 # Sprawdzanie działania napisanych funkcji
 for item in zmienna:
