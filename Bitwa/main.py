@@ -8,8 +8,28 @@ magic= [{"nazwa": "Fire", "koszt": 10, "obrazenia": 60},
 
 player1=Osoba(460,65,60,34,magic)
 
-print(player1.losuj_obrazenie())
-print(player1.losuj_magic(0))
-print(player1.losuj_magic(1))
-print(player1.losuj_magic(2))
-print(player1.losuj_magic(3))
+wrog=Osoba(1200,65,45,25,magic)
+
+run=True
+
+#czerwony, pogrubiony tekst
+print(bcolors.FAIL+bcolors.BOLD+"Jestes pod atakiem"+bcolors.ENDC)
+
+while run:
+    print("========================")
+    player1.choose_action()
+    wybor=input("Twoj wybór to: ")
+
+    print("Wybrales: ",wybor)
+
+    pom=int(wybor)-1
+
+    player1.choose_magic()
+    wybor=input("Twoj wybór to: ")
+
+    print("Wybrales: ",wybor)
+
+    pom2=int(wybor)-1
+
+    run=False
+
