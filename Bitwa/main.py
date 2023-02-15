@@ -1,5 +1,6 @@
 from classes.game import Osoba,bcolors
 from classes.magic import Czar
+from classes.Dzialania import wypisz
 
 #czarna magia
 fire= Czar("Fire",10,100,"black")
@@ -11,10 +12,11 @@ water=Czar("Water",1,10,"black")
 lek= Czar("Cure",12,120,"white")
 pigula=Czar("Cura",18,200,"white")
 
+
 magic=[fire,thunder,blizzard,water,lek,pigula]
 
+#gracze
 player1=Osoba(460,65,60,34,magic)
-
 wrog=Osoba(1000,65,45,25,[])
 
 run=True
@@ -96,14 +98,10 @@ while run:
             print("Wróg zaatakował z siłą: ", dmg, "   Twoje życie wynosi: ",player1.get_zycie())
             Enemy=0
 
-        
-        
-
-    print("------------------------------------------")
-    print("Wrog: "+bcolors.FAIL+str(wrog.get_zycie())+" na "+str(wrog.get_zycie_max())+bcolors.ENDC) 
-    print("Ty: "+bcolors.OKGREEN+str(player1.get_zycie())+" na "+str(player1.get_zycie_max())+bcolors.ENDC) 
-    print("    "+bcolors.OKGREEN+str(player1.get_moc())+" na "+str(player1.get_moc_max())+bcolors.ENDC) 
-       
+    #wypisz sytuacje z życiami
+    wypisz(wrog,player1)
+    
+    #Końcowe komunikaty
     if wrog.get_zycie()==0:
         print(bcolors.OKGREEN+"Wygrana"+bcolors.ENDC)
         run=False
