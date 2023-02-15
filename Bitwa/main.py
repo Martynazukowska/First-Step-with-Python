@@ -1,10 +1,13 @@
 from classes.game import Osoba,bcolors
+from classes.magic import Czar
 
-#słownik do różnych zaklęc
-magic= [{"nazwa": "Fire", "koszt": 10, "obrazenia": 100},
-        {"nazwa": "Thunder", "koszt": 10, "obrazenia": 124},
-        {"nazwa": "Blizzard", "koszt": 20, "obrazenia": 100},
-        {"nazwa": "Water", "koszt": 1, "obrazenia": 10}]
+#zaklecia
+fire= Czar("Fire",10,100,"black")
+thunder=Czar("Thunder",10,124,"black")
+blizzard=Czar("Blizzard",20,100,"black")
+water=Czar("Water",1,10,"black")
+
+magic=[fire,thunder,blizzard,water]
 
 player1=Osoba(460,65,60,34,magic)
 
@@ -45,20 +48,21 @@ while run:
             wybor=input("Twoj wybór to: ")
             pom2=int(wybor)-1
             print("\n")
-            print("Wybrales: ",wybor," : ",player1.get_nazwe_zaklecia(pom2),
-                "    o koszcie   ",player1.get_koszt_zaklecia(pom2),"\n")
+            print("Wybrales: ",wybor," : ",player1.get_zaklecie(pom2).get_nazwe_zaklecia(),
+                "    o koszcie   ",player1.get_zaklecie(pom2).get_koszt_zaklecia(),"\n")
             #czy możemy użyć tego zaklecia
             twoja_moc=player1.get_moc()
-            if player1.get_koszt_zaklecia(pom2)<twoja_moc:
-                dmg=player1.losuj_magic(pom2)
+            if player1.get_zaklecie(pom2).get_koszt_zaklecia()<twoja_moc:
+                dmg=player1.get_zaklecie(pom2).losuj_magic()
                 #zazaruj
-                player1.odswiez_moc(player1.get_koszt_zaklecia(pom2))
+                player1.odswiez_moc(player1.get_zaklecie(pom2).get_koszt_zaklecia())
                 wrog.take_obrazenie(dmg)
                 print("Zaczarowales wrogowi oslabiajac go o : ", dmg)
                 print("Wartość życia wroga to: ", wrog.zycie)
                 Enemy=1
             else:
                 print(bcolors.FAIL+"\n Za mało mocy \n"+bcolors.ENDC)
+                continue
 
     #ruch wroga
     elif Enemy==1:

@@ -36,13 +36,11 @@ class Osoba:
     def get_moc_max(self):
         return self.moc_max
 
+    def get_zaklecie(self,ktory):
+        return self.magic[ktory]
+
     def losuj_obrazenie(self):
         return random.randrange(self.atakD,self.atakG)
-    
-    def losuj_magic(self,ideks_zaklecia):
-        zaklecie_zakresD=self.magic[ideks_zaklecia]["obrazenia"]-10
-        zaklecie_zakresG=self.magic[ideks_zaklecia]["obrazenia"]+10
-        return random.randrange(zaklecie_zakresD,zaklecie_zakresG)
     
     def take_obrazenie(self,obrazenie):
         self.zycie-=obrazenie
@@ -51,12 +49,6 @@ class Osoba:
 
     def odswiez_moc(self,koszt):
         self.moc-=koszt
-    
-    def get_nazwe_zaklecia(self,ideks_zaklecia):
-        return self.magic[ideks_zaklecia]["nazwa"]
-
-    def get_koszt_zaklecia(self,ideks_zaklecia):
-        return self.magic[ideks_zaklecia]["koszt"]
 
     def choose_action(self):
         i=1
@@ -67,6 +59,6 @@ class Osoba:
     def choose_magic(self):
         i=1
         for item in self.magic:
-            print(str(i)," : Nazwa - ", item["nazwa"],"       Koszt - ",item["koszt"])
+            print(str(i)," : Nazwa - ", item.get_nazwe_zaklecia(),"       Koszt - ",item.get_koszt_zaklecia())
             i+=1
     
