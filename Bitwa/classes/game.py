@@ -45,12 +45,12 @@ class Osoba:
         return random.randrange(zaklecie_zakresD,zaklecie_zakresG)
     
     def take_obrazenie(self,obrazenie):
-        self.zycie-=obojentne
+        self.zycie-=obrazenie
         if self.zycie<0:
             self.zycie=0
 
     def odswiez_moc(self,koszt):
-        moc-=koszt
+        self.moc-=koszt
     
     def get_nazwe_zaklecia(self,ideks_zaklecia):
         return self.magic[ideks_zaklecia]["nazwa"]
