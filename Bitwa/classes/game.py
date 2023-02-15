@@ -39,6 +39,11 @@ class Osoba:
     def get_zaklecie(self,ktory):
         return self.magic[ktory]
 
+    def heal(self,dmg):
+        self.zycie+=dmg
+        if self.zycie>self.zycie_max:
+            self.zycie=self.zycie_max
+
     def losuj_obrazenie(self):
         return random.randrange(self.atakD,self.atakG)
     
@@ -59,6 +64,6 @@ class Osoba:
     def choose_magic(self):
         i=1
         for item in self.magic:
-            print(str(i)," : Nazwa - ", item.get_nazwe_zaklecia(),"       Koszt - ",item.get_koszt_zaklecia())
+            print(str(i)," : Nazwa - ", item.get_nazwe_zaklecia()," (Koszt - ",item.get_koszt_zaklecia(),")")
             i+=1
     

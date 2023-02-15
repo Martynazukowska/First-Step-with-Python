@@ -1,17 +1,21 @@
 from classes.game import Osoba,bcolors
 from classes.magic import Czar
 
-#zaklecia
+#czarna magia
 fire= Czar("Fire",10,100,"black")
 thunder=Czar("Thunder",10,124,"black")
 blizzard=Czar("Blizzard",20,100,"black")
 water=Czar("Water",1,10,"black")
 
-magic=[fire,thunder,blizzard,water]
+#biała magia
+lek= Czar("Cure",12,120,"white")
+pigula=Czar("Cura",18,200,"white")
+
+magic=[fire,thunder,blizzard,water,lek,pigula]
 
 player1=Osoba(460,65,60,34,magic)
 
-wrog=Osoba(1200,65,45,25,magic)
+wrog=Osoba(1000,65,45,25,[])
 
 run=True
 
@@ -28,6 +32,9 @@ while run:
         player1.choose_action()
         wybor=input("Twoj wybór to: ")
         pom=int(wybor)-1
+        if pom>len(player1.action):
+            print(bcolors.FAIL+"\n Blad w komendzie \n"+bcolors.ENDC)
+            continue
         print("\n")
         print("Wybrales: ",wybor," : ", player1.action[pom],"\n")
 
@@ -40,13 +47,17 @@ while run:
             print("Wartość życia wroga to: ", wrog.zycie)
             Enemy=1
         
+        #Zaczarowanie
         elif pom==1:
-            #Zaczarowanie
             #wybór zaklęcia
             print("==================================")
             player1.choose_magic()
             wybor=input("Twoj wybór to: ")
             pom2=int(wybor)-1
+            #jeśli zla wartość zaklecia
+            if pom2>len(player1.magic):
+                print(bcolors.FAIL+"\n Blad w komendzie \n"+bcolors.ENDC)
+                continue
             print("\n")
             print("Wybrales: ",wybor," : ",player1.get_zaklecie(pom2).get_nazwe_zaklecia(),
                 "    o koszcie   ",player1.get_zaklecie(pom2).get_koszt_zaklecia(),"\n")
@@ -54,15 +65,25 @@ while run:
             twoja_moc=player1.get_moc()
             if player1.get_zaklecie(pom2).get_koszt_zaklecia()<twoja_moc:
                 dmg=player1.get_zaklecie(pom2).losuj_magic()
-                #zazaruj
-                player1.odswiez_moc(player1.get_zaklecie(pom2).get_koszt_zaklecia())
-                wrog.take_obrazenie(dmg)
-                print("Zaczarowales wrogowi oslabiajac go o : ", dmg)
-                print("Wartość życia wroga to: ", wrog.zycie)
-                Enemy=1
+
+                if player1.get_zaklecie(pom2).get_type_zaklecia()=="black":
+                    #zazaruj
+                    player1.odswiez_moc(player1.get_zaklecie(pom2).get_koszt_zaklecia())
+                    wrog.take_obrazenie(dmg)
+                    print("Zaczarowales wrogowi oslabiajac go o : ", dmg)
+                    print("Wartość życia wroga to: ", wrog.zycie)
+                    Enemy=1
+                elif player1.get_zaklecie(pom2).get_type_zaklecia()=="white":
+                    #lecz
+                    player1.odswiez_moc(player1.get_zaklecie(pom2).get_koszt_zaklecia())
+                    player1.heal(dmg)
+                    print("Zwiększyłeś swoje życie o : ", dmg)
+                    print("Wartość twojego życia to: ", player1.zycie)
+                    Enemy=1
             else:
                 print(bcolors.FAIL+"\n Za mało mocy \n"+bcolors.ENDC)
                 continue
+
 
     #ruch wroga
     elif Enemy==1:

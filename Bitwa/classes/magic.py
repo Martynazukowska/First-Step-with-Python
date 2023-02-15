@@ -21,7 +21,7 @@ class Czar:
         return self.type
 
     def losuj_magic(self):
-        zaklecie_zakresD=self.obrazenia-10
-        zaklecie_zakresG=self.obrazenia+10
+        zaklecie_zakresD=self.obrazenia-15
+        zaklecie_zakresG=self.obrazenia+15
         return random.randrange(zaklecie_zakresD,zaklecie_zakresG)
 
