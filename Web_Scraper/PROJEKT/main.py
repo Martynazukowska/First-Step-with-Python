@@ -24,3 +24,16 @@ for item in links:
     if item_text and item_href:
         print(item_text)
         print(item_href)
+        #print("Parent:", item.find("a").parent,"\n")
+        # wchodzimy głębiej w opis niż wyżej
+        print("Opis:", item.find("a").parent.parent.find("p").text,"\n")
+
+        ##teraz szukamy dzieci i sprawdzamy ile każdy ma
+        #dziecko=item.children
+        #for item2 in dziecko:
+        #    print("Dziecko: ", item2,"\n")
+        
+        #teraz szukamy rodzeństwa pierwsego
+        dziecko=item.find("h2")
+        print("Natępne rodzeństwo: ", dziecko.next_sibling,"\n")
+        
