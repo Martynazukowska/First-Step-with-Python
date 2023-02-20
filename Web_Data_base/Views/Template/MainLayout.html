@@ -4,6 +4,9 @@ $var css: ./css/bootstrap.min.css
 <html lang="pl">
     <head>
         <meta charset="UFT-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <title> WEB </title>
 
         $if self.css:
@@ -12,16 +15,16 @@ $var css: ./css/bootstrap.min.css
     </head>
     <body>
         <div id="app">
-            <div class ="Gora-info">
-                <div class="Gora-glowny">
-                    <a class="Gora-glowny-napis"> Glowna </a>
+            <div class ="navbar navbar-info navbar-fixed-top">
+                <div class="navbar-header">
+                    <a class="navbar-brand"> Glowna </a>
                 </div>
 
-                <ul class Gora-dalej>
-                    <li><a class="waves-effect" href="/"> 1 <div class="ripple"></div></a></li>
-                    <li><a href="/2"> 2 <div class="ripple"></div></a></li>
-                    <li><a href="/3"> 3 <div class="ripple"></div></a></li>
-                    <li><a href="/4"> 4 <div class="ripple"></div></a></li>
+                <ul class="nav navbar-nav">
+                    <li><a class="waves-effect" href="/"> 1 <div class="ripple-container"></div></a></li>
+                    <li><a href="/Opis2"> Opis 2 <div class="ripple-container"></div></a></li>
+                    <li><a href="/Opis3"> Opis 3 <div class="ripple-container"></div></a></li>
+                    <li><a href="/Opis4"> Opis 4 <div class="ripple-container"></div></a></li>
                 </ul>
 
                 <div class="pull-right">
