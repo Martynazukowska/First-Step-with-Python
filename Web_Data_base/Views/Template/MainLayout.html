@@ -1,17 +1,25 @@
 $def with (page)
-$var css: ./css/bootstrap.min.css 
 
 <html lang="pl">
     <head>
         <meta charset="UFT-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <title> WEB </title>
+        <script type="text/javascript"   LANGUAGE="JavaScript">    
+            function myFunction()
+            {
+                var username=document.getElementById("username").value;
+                var display_name=document.getElementById("display_name").value;
+                var email=document.getElementById("email").value;
+                var password=document.getElementById("password").value; 
+                document.getElementById("napis").innerHTML=username;
+                document.getElementById("napis1").innerHTML=display_name;
+                document.getElementById("napis2").innerHTML=email;
+                document.getElementById("napis3").innerHTML=password;
 
-        $if self.css:
-            $for style in self.css.split():
-                <link rel="stylesheet" href="$style"/>
+                console.log("HOP: ",username,display_name,email,password)
+            }
+        </script>
     </head>
     <body>
         <div id="app">
@@ -30,9 +38,14 @@ $var css: ./css/bootstrap.min.css
                 <div class="pull-right">
                     <a href="/register" class="btn btn-raised btn-default">Register</a>
                 </div>
-
             </div>
             $:page
+            <div class="pom">
+                <li><a id="napis"></a></li>
+                <li><a id="napis1"></a></li>
+                <li><a id="napis2"></a></li>
+                <li><a id="napis3"></a></li>
+            </div>
         </div>
     </body>
 </html>
