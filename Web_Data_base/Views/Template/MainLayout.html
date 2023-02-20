@@ -1,0 +1,35 @@
+$def with (page)
+$var css: ./css/bootstrap.min.css 
+
+<html lang="pl">
+    <head>
+        <meta charset="UFT-8">
+        <title> WEB </title>
+
+        $if self.css:
+            $for style in self.css.split():
+                <link rel="stylesheet" href="$style"/>
+    </head>
+    <body>
+        <div id="app">
+            <div class ="Gora-info">
+                <div class="Gora-glowny">
+                    <a class="Gora-glowny-napis"> Glowna </a>
+                </div>
+
+                <ul class Gora-dalej>
+                    <li><a class="waves-effect" href="/"> 1 <div class="ripple"></div></a></li>
+                    <li><a href="/2"> 2 <div class="ripple"></div></a></li>
+                    <li><a href="/3"> 3 <div class="ripple"></div></a></li>
+                    <li><a href="/4"> 4 <div class="ripple"></div></a></li>
+                </ul>
+
+                <div class="pull-right">
+                    <a href="/register" class="btn btn-raised btn-default">Register</a>
+                </div>
+
+            </div>
+            $:page
+        </div>
+    </body>
+</html>
